@@ -1,40 +1,76 @@
-This is a Kotlin Multiplatform project targeting Android, Desktop (JVM).
+# 1단계 - 칸반 보드 태스크(카드)
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+## 칸반 보드 요소
 
-### Build and Run Android Application
+### 1. 컨테이너
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+- [x] 보드의 각 요소를 배치할 컨테이너를 Box로 선언
 
-### Build and Run Desktop (JVM) Application
+### 2. 제목
 
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
+- [x] 보드의 제목을 표시할 텍스트 컴포넌트
+- [x] 컨테이너의 가로 길이보다 표시할 문자열이 길 경우 문자열의 뒷부분을 말줄임표로 대치
+- [x] 줄넘김을 허용하지 않음
+
+### 3. 중간 내용
+
+- [x] 보드에 중간 내용을 표시할 텍스트 컴포넌트
+- [x] 컨테이너의 가로 길이보다 표시할 문자열이 길 경우 문자열의 뒷부분을 말줄임표로 대치
+- [x] 줄넘김은 최대 2줄까지 허용
+
+### 4. 태그
+
+- [x] 태그를 표시할 컨테이너
+    - [x] flowRow로 선언
+- [x] 각 태그의 내용을 표시할 텍스트 컴포넌트
+    - [x] 최대 글자수는 5자로 제한
+- [x] 태그의 최대 개수는 5개로 제한
+
+### 5. 작성자
+
+- [x] 아이콘과 사용자 이름을 표시할 컨테이너
+- [x] 작성자의 이름이 컨테이너의 가로 길이보다 길 경우 문자열의 뒷부분을 말줄임표로 대치
+- [x] 줄넘김을 허용하지 않음
+
+# 함수 설명
+
+## KanbanBoardMax
+
+칸반 보드의 각 요소가 최대일 경우를 표현한 함수
+
+## KanbanBoardCase1
+
+칸반 보드의 각 요소가 전부 존재하는 상태를 표현한 함수
+
+## KanbanBoardCase2
+
+칸반 보드의 요소 중 중간 내용이 존재하지 않는 상태를 표현한 함수
+
+## KanbanBoardCase3
+
+칸반 보드의 요소 중 태그가 존재하지 않는 상태를 표현한 함수
+
+## KanbanBoardCase4
+
+칸반 보드의 요소 중 중간 내용과 태그가 존재하지 않는 상태를 표현한 함수
 
 ---
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+# 1차 피드백 반영
+
+## 1. 변경사항
+- [x] 프리뷰 렌더링을 위한 함수가 아닌 실제 카드를 생성하기 위해 각 요소를 함수로 추출
+- [x] 여러장의 카드를 출력할 보드 : CardBoardView 함수
+- [x] 각 요소를 통합할 카드 몸체 : KanbanBoardCard 함수
+- [x] 제목을 출력할 컴포넌트 : CardTitle 함수
+- [x] 본문을 출력할 컴포넌트 : CardContent 함수
+- [x] 태그를 출력할 컴포넌트 : CardTags 함수
+- [x] 작성자 정보를 출력할 컴포넌트 : CardWriter 함수
+- [x] 카드에 표시할 문자열들을 저장하기 위한 data class : CardData.class
+- [x] 색상 팔레트, 예제 문자열 등을 저장할 상수 필드 : MyConst.kt
+
+## 2. 질문 사항
+### 2-1. CardWriter 함수에서 icon 컴포넌트를 분리해야 하는지
+다른 컴포넌트는 함수로 분해했는데 아이콘만 작성자 이름 컴포넌트와 같은 함수에서 생성합니다. 이를 분리시키는게 좋을까요?
+### 2-2. App.kt, CardData.class, MyConst.kt의 디렉토리 분리
+3개의 파일이 같은 디렉터리에 위치해있는데 패키지를 나누는게 좋을까요? 나눠야 한다면 어떤 구조를 적용해서 패키지를 나누는게 좋을까요?
