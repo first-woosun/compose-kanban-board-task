@@ -1,6 +1,7 @@
 package woowacourse.kanban.board
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.AndroidUiModes.UI_MODE_NIGHT_NO
 import androidx.compose.ui.tooling.preview.AndroidUiModes.UI_MODE_NIGHT_YES
 import androidx.compose.ui.tooling.preview.Preview
@@ -72,7 +73,7 @@ annotation class DevicePreviews
 private fun CardPreview(
     @PreviewParameter(CardDataProvider::class) card: CardData
 ) {
-    KanbanBoardCard(card)
+    KanbanBoardCard(Modifier, card)
 }
 
 @DevicePreviews
@@ -80,5 +81,5 @@ private fun CardPreview(
 private fun CardPreviewOnDevice(
     @PreviewParameter(CardDataProvider::class) card: CardData
 ) {
-    KanbanBoardCard(card)
+    KanbanBoardCard(Modifier, card)
 }
