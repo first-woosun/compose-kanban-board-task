@@ -7,7 +7,7 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 
 @OptIn(ExperimentalTestApi::class)
-class KanbanBoardUnitTest {
+class CardDataTest {
     @Test
     fun `제목 미입력 오류 테스트`() = runComposeUiTest {
         assertFailsWith<IllegalArgumentException> {
