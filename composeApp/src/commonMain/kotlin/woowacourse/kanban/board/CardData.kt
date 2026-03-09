@@ -17,18 +17,13 @@ data class CardData(
             require(title.isNotBlank()) { "카드의 제목을 입력해주세요." }
             require(writer.isNotBlank()) { "작성자의 닉네임을 입력해주세요." }
             require(tags.size < 6) { "태그는 5개까지 입력 가능합니다." }
-            require(checkTagLength(tags)) { "한 태그에는 최대 5자까지 입력 가능합니다." }
+            require(isLongerThenFive(tags)) { "한 태그에는 최대 5자까지 입력 가능합니다." }
 
             return CardData(title, content, tags, writer)
         }
 
-        private fun checkTagLength(tags: List<String>): Boolean {
-            for(tag in tags) {
-                if(tag.length > 6) {
-                    return false
-                }
-            }
-            return true
+        private fun isLongerThenFive(tags: List<String>): Boolean {
+            return !tags.any { it.length > 6 }
         }
     }
 }
