@@ -156,7 +156,9 @@ shouldXxx
 - light mode와 dark mode에 대한 Preview 선언
 - desktop 환경 화면 비율과 phone 혼경 화면 비율에 대한 Preview 선언
 
-### [ ] 컴포넌트 재사용을 위한 파라미터 (Modifier??)
+### [x] 컴포넌트 재사용을 위한 파라미터
+- 반복되는 구조를 함수로 추출하여 Modifier를 인자로 전달하여 재사용성을 높일 수 있음
+- 추출한 함수에 Modifier를 전달하고 Box 안에 배치할 컴포저블을 @Composable BoxScope.()를 통해 Text 컴포저블을 전달해보고 싶었지만 아직 공부가 더 필요할 것 같습니다... 
 
 ### [x] 외부에서 사용하지 않는 컴포저블 함수의 공개범위 수정
 
@@ -168,3 +170,5 @@ shouldXxx
 
 ### [x] 테스트 코드의 파일명과 테스트 대상 파일명을 일치시키기
 - EX) CardDataTest
+
+### [ ] content의 내용이 null일 때 컴포저블이 그려지지 않을 것이라 예상하기 어려움
