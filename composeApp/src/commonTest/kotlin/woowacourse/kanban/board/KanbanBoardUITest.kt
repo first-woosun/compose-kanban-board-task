@@ -1,5 +1,6 @@
 package woowacourse.kanban.board
 
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextContains
@@ -21,7 +22,7 @@ class KanbanBoardUITest {
         )
 
         setContent {
-            KanbanBoardCard(card)
+            KanbanBoardCard(Modifier, card)
         }
 
         onNodeWithTag(CARD_BODY_TEST, useUnmergedTree = true).assertExists()
@@ -40,7 +41,7 @@ class KanbanBoardUITest {
         )
 
         setContent {
-            KanbanBoardCard(card)
+            KanbanBoardCard(Modifier, card)
         }
 
         onNodeWithTag(CARD_BODY_TEST, useUnmergedTree = true).assertExists()
@@ -59,7 +60,7 @@ class KanbanBoardUITest {
         )
 
         setContent {
-            KanbanBoardCard(card)
+            KanbanBoardCard(Modifier, card)
         }
 
         onNodeWithTag(CARD_BODY_TEST, useUnmergedTree = true).assertExists()
@@ -77,7 +78,7 @@ class KanbanBoardUITest {
         )
 
         setContent {
-            KanbanBoardCard(card)
+            KanbanBoardCard(Modifier, card)
         }
 
         onNodeWithTag(CARD_BODY_TEST, useUnmergedTree = true).assertExists()
