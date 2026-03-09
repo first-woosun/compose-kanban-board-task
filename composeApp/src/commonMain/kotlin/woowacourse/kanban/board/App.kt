@@ -73,7 +73,7 @@ fun KanbanBoardCard(cardData: CardData) {
 
 // title 컴포넌트 생성 함수
 @Composable
-fun CardTitle(title: String) {
+private fun CardTitle(title: String) {
     Box (
         modifier = Modifier
             .testTag(CARD_TITLE_TEST)
@@ -90,7 +90,7 @@ fun CardTitle(title: String) {
 
 // content 컴포넌트 생성 함수
 @Composable
-fun CardContent(content: String?) {
+private fun CardContent(content: String?) {
     if (content != null) {
         Box (
             modifier = Modifier
@@ -109,7 +109,7 @@ fun CardContent(content: String?) {
 
 // tags 컴포넌트 생성 함수
 @Composable
-fun CardTags (tags: List<String>) {
+private fun CardTags (tags: List<String>) {
     if (tags.isNotEmpty() && tags.size <= 5) {
         FlowRow(
             modifier = Modifier.testTag(CARD_TAGS_TEST),
@@ -138,7 +138,7 @@ fun CardTags (tags: List<String>) {
 
 // icon & writer 컴포넌트 생성 함수
 @Composable
-fun CardWriterProfile(writer: String) {
+private fun CardWriterProfile(writer: String) {
     Row(
         modifier = Modifier.testTag(CARD_WRITER_TEST),
         horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -150,7 +150,7 @@ fun CardWriterProfile(writer: String) {
 }
 
 @Composable
-fun CardWriterIcon() {
+private fun CardWriterIcon() {
     Icon(
         imageVector = Icons.Default.Person,
         contentDescription = null,
@@ -164,7 +164,7 @@ fun CardWriterIcon() {
 }
 
 @Composable
-fun CardWriterNickname(writer: String) {
+private fun CardWriterNickname(writer: String) {
     Text(
         writer,
         overflow = TextOverflow.Ellipsis,
