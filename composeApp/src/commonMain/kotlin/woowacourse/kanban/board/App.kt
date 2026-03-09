@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -26,7 +24,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.constant.*
@@ -172,45 +169,4 @@ private fun CardWriterNickname(writer: String) {
         fontSize = 14.sp,
         color = Color(WRITER_TEXT_COLOR)
     )
-}
-
-@Composable
-@Preview(showBackground = false)
-private fun CardBoardPreview() {
-    val testDataCollection = listOf(
-        CardData.createCard(
-            title = EXAMPLE_TITLE,
-            content = EXAMPLE_CONTENT,
-            tags = listOf("컴포넌트", "성능"),
-            writer = EXAMPLE_WRITER
-        ),
-        CardData.createCard(
-            title = EXAMPLE_TITLE,
-            tags = listOf("컴포넌트", "성능"),
-            writer = EXAMPLE_WRITER
-        ),
-        CardData.createCard(
-            title = EXAMPLE_TITLE,
-            content = EXAMPLE_CONTENT,
-            writer = EXAMPLE_WRITER
-        ),
-        CardData.createCard(
-            title = EXAMPLE_TITLE,
-            writer = EXAMPLE_WRITER
-        ),
-        CardData.createCard(
-            title = MAX_TITLE,
-            content = MAX_CONTENT,
-            tags = listOf("너무너무", "긴 태그", "최대로", "5자 까지", "5개 제한임"),
-            writer = MAX_WRITER
-        )
-    )
-
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        items(items = testDataCollection) { card ->
-            KanbanBoardCard(card)
-        }
-    }
 }
