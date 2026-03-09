@@ -126,16 +126,17 @@
 
 # 2단계 - 칸반 보드 태스크 피드백 반영
 
-### [ ] 관심사에 따른 Const 분리
+### [x] 관심사에 따른 Const 분리
 
-### [ ] checkTagLength 함수 이름에 Prefix 관례 적용
+### [x] checkTagLength 함수 이름에 Prefix 관례 적용
 ```kotlin
 isXxx
 hasXxx
 canXxx
 shouldXxx
 ```
-- 함수 내부 구현도 코틀린스럽게 바꿔보기
+- [x] 함수 내부 구현도 코틀린스럽게 바꿔보기
+- checkTagLength -> isLongerThenFive
 
 ### [ ] Preview 인자를 통한 프리뷰 케이스 적용해보기
 
